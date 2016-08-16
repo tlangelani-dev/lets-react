@@ -14,7 +14,24 @@
 <body>
     <div id="main" class="container"></div>
     <script type="text/babel">
-        ReactDOM.render(<h1>Spree (ReactJs)</h1>, document.getElementById('main'));
+        let Checkbox = React.createClass({
+            getInitialState: function() {
+                return {checked: true}
+            },
+            handleChecked: function() {
+                this.setState({checked: !this.state.checked})
+            },
+            render: function() {
+                let msg = (this.state.checked) ? 'checked' : 'unchecked';
+                return (
+                    <div>
+                        <input type="checkbox" defaultChecked={this.state.checked} onChange={this.handleChecked} />
+                        <h3>Checkbox is {msg}</h3>
+                    </div>
+                )
+            }
+        });
+        ReactDOM.render(<Checkbox />, document.getElementById('main'));
     </script>
 </body>
 </html>
