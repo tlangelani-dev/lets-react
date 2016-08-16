@@ -14,7 +14,30 @@
 <body>
     <div id="main" class="container"></div>
     <script type="text/babel">
-        ReactDOM.render(<h1>Spree (ReactJs)</h1>, document.getElementById('main'));
+        let Comment = React.createClass({
+            edit: function() {
+                console.log('Edit Clicked');
+            },
+            remove: function() {
+                console.log('Remove Clicked');
+            },
+            render: function() {
+                return (
+                    <div className="row comment-container">
+                        <div className="text">{this.props.children}</div>
+                        <button onClick={this.edit} className="btn btn-primary">Edit</button>
+                        <button onClick={this.remove} className="btn btn-danger">Remove</button>
+                    </div>
+                )
+            }
+        });
+        ReactDOM.render(
+            <div>
+                <Comment>HTML5</Comment>
+                <Comment>CSS3</Comment>
+                <Comment>Nodejs</Comment>
+            </div>
+        , document.getElementById('main'));
     </script>
 </body>
 </html>

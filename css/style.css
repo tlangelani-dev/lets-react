@@ -1,1 +1,3 @@
 body {}
+.text {background: #ddd; margin: 10px 0;padding: 4px;}
+.btn {margin-right: 10px; min-width: 100px}
